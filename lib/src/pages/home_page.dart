@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:mycontacts/src/models/contact_model.dart';
 import 'package:mycontacts/src/pages/register_page.dart';
@@ -59,7 +61,10 @@ class _HomePageState extends State<HomePage> {
                     tileColor: Colors.grey[200],
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
-                    leading: const Icon(Icons.person),
+                    leading: CircleAvatar(
+                      backgroundImage:
+                          FileImage(File(contacts![index].imagePath!)),
+                    ),
                     title: Text(contacts![index].name!),
                     subtitle: Text(contacts![index].number.toString()),
                     trailing: const Icon(
